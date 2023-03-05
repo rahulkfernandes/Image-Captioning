@@ -6,14 +6,14 @@ from transformers import VisionEncoderDecoderModel, ViTImageProcessor, AutoToken
 MODEL1 = "Salesforce/blip-image-captioning-large"
 MODEL2 = "nlpconnect/vit-gpt2-image-captioning"
 
-@st.cache_resource
+@st.cache_resource(show_spinner=False)
 def load_model1():
     # Loads blip-image-captioning-large model
     processor = BlipProcessor.from_pretrained(MODEL1)
     model = BlipForConditionalGeneration.from_pretrained(MODEL1)
     return model, processor
 
-@st.cache_resource
+@st.cache_resource(show_spinner=False)
 def load_model2():
     # Loads vit-gpt2-image-captioning model
     model2 = VisionEncoderDecoderModel.from_pretrained(MODEL2)
@@ -41,7 +41,6 @@ if __name__== "__main__":
     with st.spinner('Loading Model'):
         blip_model, processor = load_model1()
         gpt2_model, feature_ext, tokenizer = load_model2()
-
 
     st.write("""
          # Image2Caption Generator
