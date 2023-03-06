@@ -4,3 +4,4 @@ torch==1.13.1
 torchvision==1.13.1 
 torchaudio==1.13.1
 streamlit===1.19.0
+sentencepiece==0.1.97 
