@@ -3,7 +3,6 @@ FROM python:3.10
 EXPOSE 8080
 
 WORKDIR /img2cap
-COPY ./requirements.txt .
 COPY . ./
 
 RUN pip install -r requirements.txt
